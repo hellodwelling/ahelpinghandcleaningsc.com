@@ -51,7 +51,42 @@
 
 
     </style>
-    <script type="text/javascript" defer>
+    <script type="text/javascript">
+        function segmentScript(){
+            var prophoneSegmentId = 'Z6dq7zq7CtZubdSRrh4EHjCsAasGDPiE'
+            var customerPagesSegmentId = '9Ce585PETlETCGamY79KkSoBrcAdcdPc'
+
+            if (window.location.href.includes('prosite.prophone.com')) {
+                segmentId = prophoneSegmentId
+            } else {
+                segmentId = customerPagesSegmentId
+            }
+            console.log('bucksaaaaaa')
+
+            var analytics=window.analytics=window.analytics||[];
+            if(!analytics.initialize)
+            if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");
+            else{
+                    analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];
+                analytics.factory=function(e){
+                    return function(){
+                        var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics
+                    }
+                };
+                for(var e=0;e<analytics.methods.length;e++){
+                    var key=analytics.methods[e];analytics[key]=analytics.factory(key)
+                }
+                analytics.load=function(key,e){var t=document.createElement("script");
+                t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";
+                var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e
+                };
+                analytics._writeKey=segmentId;;
+                analytics.SNIPPET_VERSION="4.15.3";
+                analytics.load(segmentId);
+                analytics.page();
+            };
+        }
+        segmentScript()
                     function send_sms(slug){
                         const sendButton = document.getElementById('sendButton')
                         sendButton.disabled = true
@@ -308,12 +343,19 @@
                     :class="{'hidden': !scrolledFromTop, 'hidden': scrolledFromTop}"
                     class="sm:flex text-white text-sm mb-3 sm:mb-0"
                 >
-                    You’re just a few clicks from going live! Don’t worry - we can still make edits after launching.
+                    
+
+                    Hosea, you’re just a few clicks from going live! Don’t worry - we can still make edits after launching.
+
+                    
                 </div>
             </div>
             <div class="flex flex-row items-center">
                 <a class="flex bg-white px-4 py-2 rounded-md text-orange-600 mr-4 text-sm" href="https://app.prophone.com/checkout?id=6227">
                     Launch my site
+                </a>
+                <a id="contact-us-button" class="flex bg-white px-4 py-2 rounded-md text-orange-600 mr-4 text-sm" href="tel:8573653045">
+                    Contact Us
                 </a>
                 <a class="flex font-bold underline underline-offset-4 text-white text-sm" href="https://www.prophone.com/learn-more?id=6227">
                     Learn more →
@@ -863,7 +905,7 @@
 <script>
     const navBar = document.getElementById('nav-bar')
     const launchBanner = document.getElementById('launch-site-banner')
-
+    const contactUsButton = document.getElementById('contact-us-button')
     function detectMob() {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             return true
@@ -873,12 +915,18 @@
     }
     const isMobile = detectMob()
 
-    if (window.location.href.includes('prosite.prophone.com')) {
+    if (window.location.href.includes('prosite.prophone.com')
+     || window.location.href.includes('dev.prosite.prophone.com')
+     || window.location.href.includes('stage.prosite.prophone.com')
+     || window.location.href.includes('127.0.0.1:8000')
+     || window.location.href.includes('localhost')) {
         launchBanner.style.display = 'block'
         if (isMobile) {
             navBar.className = "fixed inset-x-0 sm:top-16 z-20 transition-all duration-200"
+            contactUsButton.href = "tel:8573653045"
         } else {
             navBar.className = "fixed inset-x-0 top-0 sm:top-16 z-20 transition-all duration-200"
+            contactUsButton.href = "mailto:support@prophone.com?subject=ProPhone - Sales Inquiry"
         }
     } else {
         launchBanner.style.display = 'none'
@@ -927,7 +975,7 @@
             <div
     x-data="{
         activeImage: 0,
-        amountOfImages: 7,
+        amountOfImages: 6,
         next() {
             if (this.activeImage < this.amountOfImages - 1)
                 this.activeImage ++;
@@ -948,7 +996,7 @@
                     <button @click="activeImage = 0; galleryModalOpen = true" class="block w-full h-full space-y-4 text-left rounded focus:outline-none focus-visible:ring ring-primary ring-offset-2 ring-opacity-75">
                         <div class="aspect-w-3 aspect-h-2">
                             
-                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/57393dc5-3e2c-4663-9c9b-810fca2f4429.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/media/57393dc5-3e2c-4663-9c9b-810fca2f4429.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                             
                         </div>
 
@@ -965,7 +1013,7 @@
                     <button @click="activeImage = 1; galleryModalOpen = true" class="block w-full h-full space-y-4 text-left rounded focus:outline-none focus-visible:ring ring-primary ring-offset-2 ring-opacity-75">
                         <div class="aspect-w-3 aspect-h-2">
                             
-                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/3a877625-5bea-4db6-9632-2528f5ba9ef8.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/media/476c2af8-76fa-4d56-9d9d-1fa3470f0eae.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                             
                         </div>
 
@@ -982,7 +1030,7 @@
                     <button @click="activeImage = 2; galleryModalOpen = true" class="block w-full h-full space-y-4 text-left rounded focus:outline-none focus-visible:ring ring-primary ring-offset-2 ring-opacity-75">
                         <div class="aspect-w-3 aspect-h-2">
                             
-                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/476c2af8-76fa-4d56-9d9d-1fa3470f0eae.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/media/21b14b59-6763-481b-9b44-c273823b68de.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                             
                         </div>
 
@@ -999,7 +1047,7 @@
                     <button @click="activeImage = 3; galleryModalOpen = true" class="block w-full h-full space-y-4 text-left rounded focus:outline-none focus-visible:ring ring-primary ring-offset-2 ring-opacity-75">
                         <div class="aspect-w-3 aspect-h-2">
                             
-                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/21b14b59-6763-481b-9b44-c273823b68de.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/media/33cf5efa-d328-4436-87bd-4a88aecb2e37.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                             
                         </div>
 
@@ -1016,7 +1064,7 @@
                     <button @click="activeImage = 4; galleryModalOpen = true" class="block w-full h-full space-y-4 text-left rounded focus:outline-none focus-visible:ring ring-primary ring-offset-2 ring-opacity-75">
                         <div class="aspect-w-3 aspect-h-2">
                             
-                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/33cf5efa-d328-4436-87bd-4a88aecb2e37.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/media/3aaee454-9fa4-4afc-a652-cc4be09b0d9e.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                             
                         </div>
 
@@ -1033,24 +1081,7 @@
                     <button @click="activeImage = 5; galleryModalOpen = true" class="block w-full h-full space-y-4 text-left rounded focus:outline-none focus-visible:ring ring-primary ring-offset-2 ring-opacity-75">
                         <div class="aspect-w-3 aspect-h-2">
                             
-                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/3aaee454-9fa4-4afc-a652-cc4be09b0d9e.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
-                            
-                        </div>
-
-                        <div class="space-y-1 text-lg font-medium leading-6">
-                            <p class="line-clamp-3"></p>
-                            <h3 class="text-primary"></h3>
-                        </div>
-                    </button>
-                </div>
-            </li>
-        
-            <li x-cloak x-data="{ shown: false }" x-intersect.full="shown = true" class=" block ">
-                <div x-show="shown" x-transition:enter="transition duration-1000" x-transition:enter-start="transform translate-y-20" x-transition:enter-end="transform translate-y-0">
-                    <button @click="activeImage = 6; galleryModalOpen = true" class="block w-full h-full space-y-4 text-left rounded focus:outline-none focus-visible:ring ring-primary ring-offset-2 ring-opacity-75">
-                        <div class="aspect-w-3 aspect-h-2">
-                            
-                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/media/75f7cd15-fd94-457b-b9af-93a2d0d97357.png" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/media/75f7cd15-fd94-457b-b9af-93a2d0d97357.png" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                             
                         </div>
 
@@ -1107,49 +1138,42 @@
                                 
                                     <li class="flex flex-col" x-show="activeImage === 0">
                                             
-                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/57393dc5-3e2c-4663-9c9b-810fca2f4429.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/684x480/media/57393dc5-3e2c-4663-9c9b-810fca2f4429.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                                             <p lorem="1" class="mt-3 text-gray-500"></p>
                                         
                                     </li>
                                 
                                     <li class="flex flex-col" x-show="activeImage === 1">
                                             
-                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/3a877625-5bea-4db6-9632-2528f5ba9ef8.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/684x480/media/476c2af8-76fa-4d56-9d9d-1fa3470f0eae.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                                             <p lorem="1" class="mt-3 text-gray-500"></p>
                                         
                                     </li>
                                 
                                     <li class="flex flex-col" x-show="activeImage === 2">
                                             
-                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/476c2af8-76fa-4d56-9d9d-1fa3470f0eae.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/684x480/media/21b14b59-6763-481b-9b44-c273823b68de.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                                             <p lorem="1" class="mt-3 text-gray-500"></p>
                                         
                                     </li>
                                 
                                     <li class="flex flex-col" x-show="activeImage === 3">
                                             
-                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/21b14b59-6763-481b-9b44-c273823b68de.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/684x480/media/33cf5efa-d328-4436-87bd-4a88aecb2e37.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                                             <p lorem="1" class="mt-3 text-gray-500"></p>
                                         
                                     </li>
                                 
                                     <li class="flex flex-col" x-show="activeImage === 4">
                                             
-                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/33cf5efa-d328-4436-87bd-4a88aecb2e37.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/684x480/media/3aaee454-9fa4-4afc-a652-cc4be09b0d9e.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                                             <p lorem="1" class="mt-3 text-gray-500"></p>
                                         
                                     </li>
                                 
                                     <li class="flex flex-col" x-show="activeImage === 5">
                                             
-                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/3aaee454-9fa4-4afc-a652-cc4be09b0d9e.jpeg" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
-                                            <p lorem="1" class="mt-3 text-gray-500"></p>
-                                        
-                                    </li>
-                                
-                                    <li class="flex flex-col" x-show="activeImage === 6">
-                                            
-                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/684x480/media/75f7cd15-fd94-457b-b9af-93a2d0d97357.png" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/684x480/media/75f7cd15-fd94-457b-b9af-93a2d0d97357.png" alt="Other Services for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                                             <p lorem="1" class="mt-3 text-gray-500"></p>
                                         
                                     </li>
@@ -1215,6 +1239,8 @@
     </div>
 </section>
 
+
+
 <footer class="bg-primary" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
   <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:pt-16 lg:pb-10 lg:px-8">
@@ -1249,6 +1275,13 @@
                   
                   
                   
+                  
+                  <a target="_blank" rel="noopener noreferrer" href="https://yelp.to/bXxvk4E9zrb" class="mr-3 mb-3 text-gray-100 hover:text-gray-300 focus:outline-none focus:ring-2 ring-white ring-opacity-75">
+                    <span class="sr-only">Yelp</span>
+                    <svg class="w-6 h-6" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+                        <path d="m 2.5136226,8.071675 0,0.15742 q 0,0.52069 0.072654,0.83552 0.060545,0.21796 0.2300707,0.30878 0.1695257,0.0908 0.3511604,0.0303 l 2.470232,-0.76286 q 0.2663975,-0.0848 0.3753783,-0.31484 0.060545,-0.12109 0.060545,-0.24218 0,-0.12109 -0.060545,-0.23007 Q 5.9041372,7.623675 5.6256306,7.538915 L 3.1553985,6.545975 q -0.1695257,-0.0363 -0.3329969,0.0908 -0.1634713,0.12714 -0.1997982,0.36932 -0.096872,0.43592 -0.1089808,1.06558 z m 1.0534813,-5.77598 q -0.060545,-0.0969 -0.060545,-0.19374 0,-0.10898 0.072654,-0.21796 0.1453078,-0.20586 0.4601413,-0.32695 0.9808273,-0.37538 2.0706356,-0.55701 l 0.060545,0 q 0.5449041,0 0.5933401,0.46014 0.3027245,3.79011 0.3027245,4.75883 0,0.3996 -0.3269425,0.48436 -0.072654,0.0242 -0.1453078,0.0242 -0.2542886,0 -0.4480323,-0.30273 Q 4.3541877,3.615555 3.567104,2.295675 Z m 0.8355196,9.26337 1.6831484,-2.01009 q 0.2300706,-0.25429 0.4601412,-0.25429 0.096872,0 0.1937437,0.0363 0.3027245,0.1332 0.3027245,0.5449 0,0.0605 -0.012109,0.12109 l 0,2.67609 q -0.024218,0.16952 -0.2058526,0.2664 -0.1089809,0.0605 -0.2179617,0.0605 -0.096872,0 -0.1937437,-0.0363 -0.4359233,-0.0726 -1.0292633,-0.30878 -0.5933401,-0.23612 -0.8839556,-0.45408 -0.2179617,-0.16953 -0.2179617,-0.36327 0,-0.1332 0.1210898,-0.27851 z m 3.5600404,-4.08073 q -0.072654,-0.1453 -0.072654,-0.2785 0,-0.20585 0.1816348,-0.3996 l 1.5741675,-2.16751 q 0.084763,-0.0969 0.2421796,-0.0969 0.036327,0 0.084763,0.0121 0.2058522,0.0242 0.3511602,0.21796 0.302725,0.31484 0.641776,0.85369 0.339052,0.53885 0.448032,0.89001 0.03633,0.0969 0.03633,0.18163 0,0.10898 -0.04844,0.19374 -0.09687,0.15742 -0.278506,0.19375 l -2.5307761,0.64177 q -0.096872,0.0242 -0.1937437,0.0242 -0.2785066,0 -0.4359233,-0.2664 z m 0.1453078,1.51363 q -0.1089809,0.14531 -0.1089809,0.29061 0,0.19375 0.1574168,0.38749 l 1.3804238,2.30071 q 0.084763,0.10898 0.2906155,0.10898 l 0.036327,0 q 0.2300711,-0.0121 0.3995961,-0.18164 0.326943,-0.29061 0.672049,-0.75681 0.345106,-0.46619 0.502522,-0.84157 0.04844,-0.1332 0.04844,-0.25429 0,-0.0848 -0.03633,-0.15742 -0.06054,-0.16952 -0.23007,-0.23007 L 8.7376387,8.810325 q -0.1210898,-0.0484 -0.2300706,-0.0484 -0.2542886,0 -0.3995964,0.23007 z"/>
+                    </svg>
+                  </a>
                   
                   
                   
@@ -1418,26 +1451,12 @@
               </div>
           </div>
       </div>
-      <div class="pt-8 mt-12 text-center border-t-2 border-primary-darker">
-          <p class="inline-flex items-center text-base text-gray-100 xl:text-center">
-              Built with ♥ from
-              <a href="https://www.prophone.com" class="inline-block p-1 -m-1 ml-0.5 rounded focus:outline-none focus:ring-2 ring-white ring-opacity-75">
-                  <span class="sr-only">ProPhone</span>
-                  <svg aria-hidden="true" width="95" height="20" viewBox="0 0 95 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g clip-path="url(#clip0_2081_3309)">
-                          <path d="M0.166504 4.11491C0.166504 3.88479 0.349686 3.69824 0.575652 3.69824H8.41749C8.70492 3.69824 8.90279 3.99213 8.79912 4.26515L2.9271 19.7339C2.86615 19.8944 2.71452 20.0003 2.54548 20.0003H0.575652C0.349686 20.0003 0.166504 19.8138 0.166504 19.5837V4.11491Z" fill="#F3F4F6"/>
-                          <path d="M15.5607 15.8854C15.5607 16.1155 15.3775 16.3021 15.1515 16.3021H7.3097C7.02227 16.3021 6.8244 16.0082 6.92806 15.7352L12.8001 0.266426C12.861 0.105862 13.0127 0 13.1817 0H15.1515C15.3775 0 15.5607 0.186548 15.5607 0.416667V15.8854Z" fill="#F3F4F6"/>
-                          <path d="M23.2834 15.5732H25.2474V11.7139H27.0118C29.1598 11.7139 30.6941 10.3076 30.6941 8.27637C30.6941 6.24512 29.1598 4.82324 27.0118 4.82324H23.2834V15.5732ZM25.2474 6.44824H26.7356C27.871 6.44824 28.6689 7.18262 28.6689 8.27637C28.6689 9.35449 27.871 10.0889 26.7356 10.0889H25.2474V6.44824ZM32.6332 15.5732H34.5971V10.3545C35.1034 9.69824 35.7938 9.33887 36.4382 9.33887C36.6684 9.33887 36.9139 9.37012 37.1287 9.43262V7.65137C36.9139 7.58887 36.6991 7.57324 36.4843 7.57324C35.8245 7.57324 35.1494 7.91699 34.5971 8.54199V7.76074H32.6332V15.5732ZM38.142 11.667C38.142 14.0576 39.7837 15.7607 42.1005 15.7607C44.4173 15.7607 46.0437 14.0576 46.0437 11.667C46.0437 9.26074 44.4173 7.57324 42.1005 7.57324C39.7837 7.57324 38.142 9.26074 38.142 11.667ZM40.152 11.667C40.152 10.2295 40.9498 9.24512 42.1005 9.24512C43.2359 9.24512 44.0338 10.2295 44.0338 11.667C44.0338 13.1045 43.2359 14.0889 42.1005 14.0889C40.9498 14.0889 40.152 13.1045 40.152 11.667Z" fill="#F3F4F6"/>
-                          <path d="M48.2825 15.5733H50.2464V11.7139H52.0108C54.1588 11.7139 55.6931 10.3076 55.6931 8.27637C55.6931 6.24512 54.1588 4.82324 52.0108 4.82324H48.2825V15.5733ZM50.2464 6.44824H51.7346C52.87 6.44824 53.6678 7.18262 53.6678 8.27637C53.6678 9.3545 52.87 10.0889 51.7346 10.0889H50.2464V6.44824ZM57.632 15.5733H59.5959V10.1514C60.1022 9.6045 60.6699 9.32325 61.2376 9.32325C62.0354 9.32325 62.5878 9.917 62.5878 10.7451V15.5733H64.567V10.3857C64.567 8.7295 63.4316 7.57324 61.836 7.57324C61.0535 7.57324 60.2863 7.87012 59.5959 8.43262V4.33887H57.632V15.5733ZM66.4225 11.667C66.4225 14.0576 68.0642 15.7608 70.381 15.7608C72.6978 15.7608 74.3242 14.0576 74.3242 11.667C74.3242 9.26075 72.6978 7.57324 70.381 7.57324C68.0642 7.57324 66.4225 9.26075 66.4225 11.667ZM68.4324 11.667C68.4324 10.2295 69.2303 9.24512 70.381 9.24512C71.5164 9.24512 72.3142 10.2295 72.3142 11.667C72.3142 13.1045 71.5164 14.0889 70.381 14.0889C69.2303 14.0889 68.4324 13.1045 68.4324 11.667ZM76.2559 15.5733H78.2198V10.1514C78.7261 9.6045 79.2938 9.32325 79.8615 9.32325C80.6593 9.32325 81.2117 9.917 81.2117 10.7451V15.5733H83.1909V10.3857C83.1909 8.7295 82.0555 7.57324 80.4599 7.57324C79.6774 7.57324 78.9102 7.87012 78.2198 8.43262V7.76074H76.2559V15.5733ZM85.0464 11.6045C85.0464 14.042 86.6728 15.7608 88.9896 15.7608C89.8488 15.7608 90.7233 15.5576 91.5979 15.1514V13.4795C90.8 13.9482 90.0175 14.2139 89.3118 14.2139C88.023 14.2139 87.1024 13.4014 86.9796 12.2139H92.1809C92.2116 11.9482 92.2116 11.6982 92.2116 11.4795C92.2116 9.18262 90.8461 7.57324 88.8361 7.57324C86.6421 7.57324 85.0464 9.24512 85.0464 11.6045ZM86.9796 10.917C87.0717 9.83887 87.8081 9.12012 88.7594 9.12012C89.634 9.12012 90.263 9.8545 90.3244 10.917H86.9796Z" fill="#F3F4F6"/>
-                      </g>
-                      <defs>
-                          <clipPath id="clip0_2081_3309">
-                              <rect width="94.6667" height="20" fill="white" transform="translate(0.166504)"/>
-                          </clipPath>
-                      </defs>
-                  </svg>
-              </a>
-          </p>
+      <div class="pt-10 mt-12 text-center border-t-2 border-primary-darker">
+        <div>
+            <a href="https://www.prophone.com" target="_blank">
+                <img class="w-56 m-auto" src="/staticfiles/landing_page_gen/built-with-love.png" />
+            </a>
+        </div>
       </div>
   </div>
 </footer>
@@ -1571,79 +1590,79 @@
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262308"
-                                                    name="262308"
+                                                    id="contact-service-263499"
+                                                    name="263499"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Residential Cleaning"
                                             />
-                                            <label for="contact-label-service-262308" class="ml-3 text-sm font-medium text-gray-700">Residential Cleaning</label>
+                                            <label for="contact-label-service-263499" class="ml-3 text-sm font-medium text-gray-700">Residential Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262309"
-                                                    name="262309"
+                                                    id="contact-service-263500"
+                                                    name="263500"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Airbnb Cleaning"
                                             />
-                                            <label for="contact-label-service-262309" class="ml-3 text-sm font-medium text-gray-700">Airbnb Cleaning</label>
+                                            <label for="contact-label-service-263500" class="ml-3 text-sm font-medium text-gray-700">Airbnb Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262310"
-                                                    name="262310"
+                                                    id="contact-service-263501"
+                                                    name="263501"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Deep Cleaning"
                                             />
-                                            <label for="contact-label-service-262310" class="ml-3 text-sm font-medium text-gray-700">Deep Cleaning</label>
+                                            <label for="contact-label-service-263501" class="ml-3 text-sm font-medium text-gray-700">Deep Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262311"
-                                                    name="262311"
+                                                    id="contact-service-263502"
+                                                    name="263502"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Move In / Move Out Cleaning"
                                             />
-                                            <label for="contact-label-service-262311" class="ml-3 text-sm font-medium text-gray-700">Move In / Move Out Cleaning</label>
+                                            <label for="contact-label-service-263502" class="ml-3 text-sm font-medium text-gray-700">Move In / Move Out Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262312"
-                                                    name="262312"
+                                                    id="contact-service-263503"
+                                                    name="263503"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Post-Construction Cleaning"
                                             />
-                                            <label for="contact-label-service-262312" class="ml-3 text-sm font-medium text-gray-700">Post-Construction Cleaning</label>
+                                            <label for="contact-label-service-263503" class="ml-3 text-sm font-medium text-gray-700">Post-Construction Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262313"
-                                                    name="262313"
+                                                    id="contact-service-263504"
+                                                    name="263504"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Pressure Washing"
                                             />
-                                            <label for="contact-label-service-262313" class="ml-3 text-sm font-medium text-gray-700">Pressure Washing</label>
+                                            <label for="contact-label-service-263504" class="ml-3 text-sm font-medium text-gray-700">Pressure Washing</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262314"
-                                                    name="262314"
+                                                    id="contact-service-263505"
+                                                    name="263505"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Window Cleaning"
                                             />
-                                            <label for="contact-label-service-262314" class="ml-3 text-sm font-medium text-gray-700">Window Cleaning</label>
+                                            <label for="contact-label-service-263505" class="ml-3 text-sm font-medium text-gray-700">Window Cleaning</label>
                                         </div>
                                         
                                     </div>
@@ -1672,79 +1691,79 @@
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262308"
-                                                    name="262308"
+                                                    id="contact-service-263499"
+                                                    name="263499"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Residential Cleaning"
                                             />
-                                            <label for="contact-label-service-262308" class="ml-3 text-sm font-medium text-gray-700">Residential Cleaning</label>
+                                            <label for="contact-label-service-263499" class="ml-3 text-sm font-medium text-gray-700">Residential Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262309"
-                                                    name="262309"
+                                                    id="contact-service-263500"
+                                                    name="263500"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Airbnb Cleaning"
                                             />
-                                            <label for="contact-label-service-262309" class="ml-3 text-sm font-medium text-gray-700">Airbnb Cleaning</label>
+                                            <label for="contact-label-service-263500" class="ml-3 text-sm font-medium text-gray-700">Airbnb Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262310"
-                                                    name="262310"
+                                                    id="contact-service-263501"
+                                                    name="263501"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Deep Cleaning"
                                             />
-                                            <label for="contact-label-service-262310" class="ml-3 text-sm font-medium text-gray-700">Deep Cleaning</label>
+                                            <label for="contact-label-service-263501" class="ml-3 text-sm font-medium text-gray-700">Deep Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262311"
-                                                    name="262311"
+                                                    id="contact-service-263502"
+                                                    name="263502"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Move In / Move Out Cleaning"
                                             />
-                                            <label for="contact-label-service-262311" class="ml-3 text-sm font-medium text-gray-700">Move In / Move Out Cleaning</label>
+                                            <label for="contact-label-service-263502" class="ml-3 text-sm font-medium text-gray-700">Move In / Move Out Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262312"
-                                                    name="262312"
+                                                    id="contact-service-263503"
+                                                    name="263503"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Post-Construction Cleaning"
                                             />
-                                            <label for="contact-label-service-262312" class="ml-3 text-sm font-medium text-gray-700">Post-Construction Cleaning</label>
+                                            <label for="contact-label-service-263503" class="ml-3 text-sm font-medium text-gray-700">Post-Construction Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262313"
-                                                    name="262313"
+                                                    id="contact-service-263504"
+                                                    name="263504"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Pressure Washing"
                                             />
-                                            <label for="contact-label-service-262313" class="ml-3 text-sm font-medium text-gray-700">Pressure Washing</label>
+                                            <label for="contact-label-service-263504" class="ml-3 text-sm font-medium text-gray-700">Pressure Washing</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-262314"
-                                                    name="262314"
+                                                    id="contact-service-263505"
+                                                    name="263505"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Window Cleaning"
                                             />
-                                            <label for="contact-label-service-262314" class="ml-3 text-sm font-medium text-gray-700">Window Cleaning</label>
+                                            <label for="contact-label-service-263505" class="ml-3 text-sm font-medium text-gray-700">Window Cleaning</label>
                                         </div>
                                         
                                     </div>
@@ -1873,6 +1892,12 @@
                 <ul class="mt-2 space-y-6">
                     <span hidden class="sr-only">Review types</span>
                     
+                    
+                    <li>
+                        <a target="_blank" rel="noopener noreferrer" href="https://https://yelp.to/bXxvk4E9zrb" class="inline-flex w-full px-5 py-2.5 text-sm font-medium transition border-2 border-transparent rounded-md bg-primary text-primary-foreground focus:outline-none hover:bg-primary-darker focus:ring-2 ring-primary ring-opacity-75 ring-offset-2">
+                            See More Reviews
+                        </a>
+                    </li>
                     
                     
                     <li>
