@@ -1006,7 +1006,7 @@
     <div
         x-data="{
         activeImage: 1,
-        amountOfImages: 3,
+        amountOfImages: 4,
         loop() {
             setInterval(() => { this.activeImage = this.activeImage === this.amountOfImages ? 1 : this.activeImage + 1 }, 5000)
         },
@@ -1028,7 +1028,7 @@
             
                 <img
                     class="object-cover w-full h-72 md:h-96 lg:w-full lg:h-full"
-                    src="https://landing-page-app-hero-images.s3.amazonaws.com/media/8f8aef86-26fc-4325-8d6b-a5fe4aa2db92.jpeg"
+                    src="https://landing-page-app-hero-images.s3.amazonaws.com/media/57393dc5-3e2c-4663-9c9b-810fca2f4429.jpeg"
                     alt="Cleaning company A Helping Hand Cleaning Service in Columbia, SC"
                 />
             
@@ -1047,7 +1047,7 @@
             
                 <img
                     class="object-cover w-full h-72 md:h-96 lg:w-full lg:h-full"
-                    src="https://landing-page-app-hero-images.s3.amazonaws.com/media/bf18a63a-2072-45c5-88f4-225935735d13.jpeg"
+                    src="https://landing-page-app-hero-images.s3.amazonaws.com/media/6d43df29-2a53-4765-a5ce-af03529fc53f.jpeg"
                     alt="Cleaning company A Helping Hand Cleaning Service in Columbia, SC"
                 />
             
@@ -1056,6 +1056,25 @@
         <div
             class="absolute inset-0"
             x-show="activeImage === 3"
+            x-transition:enter="transition duration-1000"
+            x-transition:enter-start="transform translate-x-full"
+            x-transition:enter-end="transform translate-x-0"
+            x-transition:leave="transition duration-1000"
+            x-transition:leave-start="transform"
+            x-transition:leave-end="transform -translate-x-full"
+        >
+            
+                <img
+                    class="object-cover w-full h-72 md:h-96 lg:w-full lg:h-full"
+                    src="https://landing-page-app-hero-images.s3.amazonaws.com/media/bf18a63a-2072-45c5-88f4-225935735d13.jpeg"
+                    alt="Cleaning company A Helping Hand Cleaning Service in Columbia, SC"
+                />
+            
+        </div>
+        
+        <div
+            class="absolute inset-0"
+            x-show="activeImage === 4"
             x-transition:enter="transition duration-1000"
             x-transition:enter-start="transform translate-x-full"
             x-transition:enter-end="transform translate-x-0"
