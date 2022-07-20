@@ -34,9 +34,9 @@
             :root {
                 --contrastThreshold: 60%;
 
-                --color-primary-h: 51.94029850746268;
-                --color-primary-s: 66.77740863787376%;
-                --color-primary-l: 58.7890625%;
+                --color-primary-h: 58.04081632653062;
+                --color-primary-s: 100.0%;
+                --color-primary-l: 47.8515625%;
                 --color-primary-darker: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) - 7.5%));
 
                 --color-secondary-h: 180.0;
@@ -588,6 +588,14 @@
                                             <div class="relative grid gap-6 px-5 py-6 bg-white sm:gap-8 sm:p-8">
                                                   
                                                     <a
+                                                        href=" gallery-Post-Construction-Cleaning "
+                                                        role="menuitem"
+                                                        class="block p-3 -m-3 transition rounded-md  focus:outline-none focus:ring-2 ring-primary ring-opacity-75 ring-offset-2 hover:bg-gray-50"
+                                                    >
+                                                        <p class="mt-1 text-sm text-gray-500">Post Construction Cleaning</p>
+                                                    </a>
+                                                 
+                                                    <a
                                                         href=" gallery-Residential-Cleaning "
                                                         role="menuitem"
                                                         class="block p-3 -m-3 transition rounded-md  focus:outline-none focus:ring-2 ring-primary ring-opacity-75 ring-offset-2 hover:bg-gray-50"
@@ -609,14 +617,6 @@
                                                         class="block p-3 -m-3 transition rounded-md  focus:outline-none focus:ring-2 ring-primary ring-opacity-75 ring-offset-2 hover:bg-gray-50"
                                                     >
                                                         <p class="mt-1 text-sm text-gray-500">Deep Cleaning</p>
-                                                    </a>
-                                                 
-                                                    <a
-                                                        href=" gallery-Post-Construction-Cleaning "
-                                                        role="menuitem"
-                                                        class="block p-3 -m-3 transition rounded-md  focus:outline-none focus:ring-2 ring-primary ring-opacity-75 ring-offset-2 hover:bg-gray-50"
-                                                    >
-                                                        <p class="mt-1 text-sm text-gray-500">Post Construction Cleaning</p>
                                                     </a>
                                                  
                                                     <a
@@ -856,6 +856,10 @@
                                     >
                                         <div class="relative grid gap-6 px-5 py-2 bg-white rounded-lg">
                                             
+                                                <a href="gallery-Post-Construction-Cleaning" role="menuitem" class="block p-3 -m-3 transition rounded-md">
+                                                    <p class="mt-1 text-sm text-gray-500">Post Construction Cleaning</p>
+                                                </a>
+                                            
                                                 <a href="gallery-Residential-Cleaning" role="menuitem" class="block p-3 -m-3 transition rounded-md">
                                                     <p class="mt-1 text-sm text-gray-500">Residential Cleaning</p>
                                                 </a>
@@ -866,10 +870,6 @@
                                             
                                                 <a href="gallery-Deep-Cleaning" role="menuitem" class="block p-3 -m-3 transition rounded-md">
                                                     <p class="mt-1 text-sm text-gray-500">Deep Cleaning</p>
-                                                </a>
-                                            
-                                                <a href="gallery-Post-Construction-Cleaning" role="menuitem" class="block p-3 -m-3 transition rounded-md">
-                                                    <p class="mt-1 text-sm text-gray-500">Post Construction Cleaning</p>
                                                 </a>
                                             
                                                 <a href="gallery-All" role="menuitem" class="block p-3 -m-3 transition rounded-md">
@@ -977,12 +977,6 @@
 
 
 
-
-
-
-
-
-
 <section class="overflow-hidden bg-white">
     <div class="relative px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:py-24 lg:px-8">
         <h1>
@@ -993,7 +987,7 @@
             <div
     x-data="{
         activeImage: 0,
-        amountOfImages: 4,
+        amountOfImages: 5,
         next() {
             if (this.activeImage < this.amountOfImages - 1)
                 this.activeImage ++;
@@ -1048,7 +1042,7 @@
                     <button @click="activeImage = 2; galleryModalOpen = true" class="block w-full h-full space-y-4 text-left rounded focus:outline-none focus-visible:ring ring-primary ring-offset-2 ring-opacity-75">
                         <div class="aspect-w-3 aspect-h-2">
                             
-                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/media/027f7198-ca79-4d36-8373-203d3cd778d3.png" alt="Post Construction Cleaning for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/media/f6bc9595-df45-4a17-8ce9-aa87dd1b474d.png" alt="Post Construction Cleaning for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                             
                         </div>
 
@@ -1065,7 +1059,24 @@
                     <button @click="activeImage = 3; galleryModalOpen = true" class="block w-full h-full space-y-4 text-left rounded focus:outline-none focus-visible:ring ring-primary ring-offset-2 ring-opacity-75">
                         <div class="aspect-w-3 aspect-h-2">
                             
-                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/media/a8f55c38-0dc6-495f-91ff-a43cb12091a2.png" alt="Post Construction Cleaning for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/media/df25855b-02f5-4bc1-9c60-714576a78006.png" alt="Post Construction Cleaning for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                            
+                        </div>
+
+                        <div class="space-y-1 text-lg font-medium leading-6">
+                            <p class="line-clamp-3"></p>
+                            <h3 class="text-primary"></h3>
+                        </div>
+                    </button>
+                </div>
+            </li>
+        
+            <li x-cloak x-data="{ shown: false }" x-intersect.full="shown = true" class=" block ">
+                <div x-show="shown" x-transition:enter="transition duration-1000" x-transition:enter-start="transform translate-y-20" x-transition:enter-end="transform translate-y-0">
+                    <button @click="activeImage = 4; galleryModalOpen = true" class="block w-full h-full space-y-4 text-left rounded focus:outline-none focus-visible:ring ring-primary ring-offset-2 ring-opacity-75">
+                        <div class="aspect-w-3 aspect-h-2">
+                            
+                                <img class="object-cover rounded-lg shadow-lg" src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/media/027f7198-ca79-4d36-8373-203d3cd778d3.png" alt="Post Construction Cleaning for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                             
                         </div>
 
@@ -1136,14 +1147,21 @@
                                 
                                     <li class="flex flex-col" x-show="activeImage === 2">
                                             
-                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/684x480/media/027f7198-ca79-4d36-8373-203d3cd778d3.png" alt="Post Construction Cleaning for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/684x480/media/f6bc9595-df45-4a17-8ce9-aa87dd1b474d.png" alt="Post Construction Cleaning for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                                             <p lorem="1" class="mt-3 text-gray-500"></p>
                                         
                                     </li>
                                 
                                     <li class="flex flex-col" x-show="activeImage === 3">
                                             
-                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/684x480/media/a8f55c38-0dc6-495f-91ff-a43cb12091a2.png" alt="Post Construction Cleaning for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/684x480/media/df25855b-02f5-4bc1-9c60-714576a78006.png" alt="Post Construction Cleaning for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
+                                            <p lorem="1" class="mt-3 text-gray-500"></p>
+                                        
+                                    </li>
+                                
+                                    <li class="flex flex-col" x-show="activeImage === 4">
+                                            
+                                            <img class="mt-2 lg:h-[481px] h-[200px] sm:h-[300px] self-center rounded-md object-cover"  src="https://d3p2r6ofnvoe67.cloudfront.net/fit-in/filters:strip_exif()/filters:format(webp)/684x480/media/027f7198-ca79-4d36-8373-203d3cd778d3.png" alt="Post Construction Cleaning for A Helping Hand Cleaning Service in Columbia, SC" loading="lazy"/>
                                             <p lorem="1" class="mt-3 text-gray-500"></p>
                                         
                                     </li>
@@ -1175,6 +1193,12 @@
         </div>
     </div>
 </section>
+
+
+
+
+
+
 
 
 
@@ -1556,79 +1580,79 @@
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270119"
-                                                    name="270119"
+                                                    id="contact-service-274858"
+                                                    name="274858"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Residential Cleaning"
                                             />
-                                            <label for="contact-label-service-270119" class="ml-3 text-sm font-medium text-gray-700">Residential Cleaning</label>
+                                            <label for="contact-label-service-274858" class="ml-3 text-sm font-medium text-gray-700">Residential Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270120"
-                                                    name="270120"
+                                                    id="contact-service-274859"
+                                                    name="274859"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Airbnb Cleaning"
                                             />
-                                            <label for="contact-label-service-270120" class="ml-3 text-sm font-medium text-gray-700">Airbnb Cleaning</label>
+                                            <label for="contact-label-service-274859" class="ml-3 text-sm font-medium text-gray-700">Airbnb Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270121"
-                                                    name="270121"
+                                                    id="contact-service-274860"
+                                                    name="274860"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Deep Cleaning"
                                             />
-                                            <label for="contact-label-service-270121" class="ml-3 text-sm font-medium text-gray-700">Deep Cleaning</label>
+                                            <label for="contact-label-service-274860" class="ml-3 text-sm font-medium text-gray-700">Deep Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270122"
-                                                    name="270122"
+                                                    id="contact-service-274861"
+                                                    name="274861"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Move In / Move Out Cleaning"
                                             />
-                                            <label for="contact-label-service-270122" class="ml-3 text-sm font-medium text-gray-700">Move In / Move Out Cleaning</label>
+                                            <label for="contact-label-service-274861" class="ml-3 text-sm font-medium text-gray-700">Move In / Move Out Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270123"
-                                                    name="270123"
+                                                    id="contact-service-274862"
+                                                    name="274862"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Post-Construction Cleaning"
                                             />
-                                            <label for="contact-label-service-270123" class="ml-3 text-sm font-medium text-gray-700">Post-Construction Cleaning</label>
+                                            <label for="contact-label-service-274862" class="ml-3 text-sm font-medium text-gray-700">Post-Construction Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270124"
-                                                    name="270124"
+                                                    id="contact-service-274863"
+                                                    name="274863"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Pressure Washing"
                                             />
-                                            <label for="contact-label-service-270124" class="ml-3 text-sm font-medium text-gray-700">Pressure Washing</label>
+                                            <label for="contact-label-service-274863" class="ml-3 text-sm font-medium text-gray-700">Pressure Washing</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270125"
-                                                    name="270125"
+                                                    id="contact-service-274864"
+                                                    name="274864"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Window Cleaning"
                                             />
-                                            <label for="contact-label-service-270125" class="ml-3 text-sm font-medium text-gray-700">Window Cleaning</label>
+                                            <label for="contact-label-service-274864" class="ml-3 text-sm font-medium text-gray-700">Window Cleaning</label>
                                         </div>
                                         
                                     </div>
@@ -1657,79 +1681,79 @@
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270119"
-                                                    name="270119"
+                                                    id="contact-service-274858"
+                                                    name="274858"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Residential Cleaning"
                                             />
-                                            <label for="contact-label-service-270119" class="ml-3 text-sm font-medium text-gray-700">Residential Cleaning</label>
+                                            <label for="contact-label-service-274858" class="ml-3 text-sm font-medium text-gray-700">Residential Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270120"
-                                                    name="270120"
+                                                    id="contact-service-274859"
+                                                    name="274859"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Airbnb Cleaning"
                                             />
-                                            <label for="contact-label-service-270120" class="ml-3 text-sm font-medium text-gray-700">Airbnb Cleaning</label>
+                                            <label for="contact-label-service-274859" class="ml-3 text-sm font-medium text-gray-700">Airbnb Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270121"
-                                                    name="270121"
+                                                    id="contact-service-274860"
+                                                    name="274860"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Deep Cleaning"
                                             />
-                                            <label for="contact-label-service-270121" class="ml-3 text-sm font-medium text-gray-700">Deep Cleaning</label>
+                                            <label for="contact-label-service-274860" class="ml-3 text-sm font-medium text-gray-700">Deep Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270122"
-                                                    name="270122"
+                                                    id="contact-service-274861"
+                                                    name="274861"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Move In / Move Out Cleaning"
                                             />
-                                            <label for="contact-label-service-270122" class="ml-3 text-sm font-medium text-gray-700">Move In / Move Out Cleaning</label>
+                                            <label for="contact-label-service-274861" class="ml-3 text-sm font-medium text-gray-700">Move In / Move Out Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270123"
-                                                    name="270123"
+                                                    id="contact-service-274862"
+                                                    name="274862"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Post-Construction Cleaning"
                                             />
-                                            <label for="contact-label-service-270123" class="ml-3 text-sm font-medium text-gray-700">Post-Construction Cleaning</label>
+                                            <label for="contact-label-service-274862" class="ml-3 text-sm font-medium text-gray-700">Post-Construction Cleaning</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270124"
-                                                    name="270124"
+                                                    id="contact-service-274863"
+                                                    name="274863"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Pressure Washing"
                                             />
-                                            <label for="contact-label-service-270124" class="ml-3 text-sm font-medium text-gray-700">Pressure Washing</label>
+                                            <label for="contact-label-service-274863" class="ml-3 text-sm font-medium text-gray-700">Pressure Washing</label>
                                         </div>
                                         
                                         <div class="flex items-center">
                                             <input
-                                                    id="contact-service-270125"
-                                                    name="270125"
+                                                    id="contact-service-274864"
+                                                    name="274864"
                                                     type="checkbox"
                                                     class="w-4 h-4 border-gray-300 rounded text-primary focus:ring-primary"
                                                     value="Window Cleaning"
                                             />
-                                            <label for="contact-label-service-270125" class="ml-3 text-sm font-medium text-gray-700">Window Cleaning</label>
+                                            <label for="contact-label-service-274864" class="ml-3 text-sm font-medium text-gray-700">Window Cleaning</label>
                                         </div>
                                         
                                     </div>
